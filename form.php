@@ -142,6 +142,145 @@
                 <button type="submit">Сохранить</button>
             </div>
         </form>
+
+<!-- ========== ЭТАПЫ ВЫПОЛНЕНИЯ ЗАДАНИЯ ========== -->
+        <section class="task">
+            <h2>Этапы выполнения задания №4</h2>
+
+            <!-- Скриншот 1: Подключение к серверу и создание каталога -->
+            <div class="subtask">
+                <h3>1. Подготовка рабочего каталога на сервере</h3>
+                <div class="description">
+                    <p>Через SSH выполнен вход на сервер <code>kubsu-dev.ru</code>, создан каталог <code>~/www/hw4</code>.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="1.PNG" alt="Создание каталога hw4">
+                    <p class="caption">Скриншот 1: Подключение по SSH и создание каталога</p>
+                </div>
+            </div>
+
+            <!-- Скриншот 2: Локальные файлы -->
+            <div class="subtask">
+                <h3>2. Подготовка локальных файлов</h3>
+                <div class="description">
+                    <p>На локальном компьютере в папке <code>laba4</code> созданы файлы: <code>index.php</code>, <code>form.php</code>, <code>style.css</code> и скриншоты для отчёта.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="2.png" alt="Локальные файлы">
+                    <p class="caption">Скриншот 2: Содержимое локальной папки</p>
+                </div>
+            </div>
+
+            <!-- Скриншот 3: Инициализация Git и отправка на GitHub -->
+            <div class="subtask">
+                <h3>3. Инициализация Git и отправка на GitHub</h3>
+                <div class="command">
+                    <strong>Команды:</strong>
+                    <pre><code>git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:Rusificator/web-hw4.git
+git push -u origin main</code></pre>
+                </div>
+                <div class="description">
+                    <p>Локальный репозиторий создан, выполнена отправка файлов на GitHub.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="3.png" alt="Git push">
+                    <p class="caption">Скриншот 3: Отправка на GitHub</p>
+                </div>
+            </div>
+
+            <!-- Скриншот 4: Клонирование на сервер -->
+            <div class="subtask">
+                <h3>4. Клонирование репозитория на сервер</h3>
+                <div class="command">
+                    <strong>Команда на сервере:</strong>
+                    <pre><code>git clone git@github.com:Rusificator/web-hw4.git
+cp -r ~/web-hw4/* ~/www/hw4/</code></pre>
+                </div>
+                <div class="description">
+                    <p>Репозиторий склонирован в домашнюю директорию, файлы скопированы в веб-доступный каталог.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="4.png" alt="Клонирование на сервере">
+                    <p class="caption">Скриншот 4: Клонирование и копирование</p>
+                </div>
+            </div>
+
+            <!-- Скриншот 5: Обновление файлов на сервере -->
+            <div class="subtask">
+                <h3>5. Обновление файлов на сервере</h3>
+                <div class="command">
+                    <strong>Команды:</strong>
+                    <pre><code>git pull
+cp -r ~/web-hw4/* ~/www/hw4/</code></pre>
+                </div>
+                <div class="description">
+                    <p>При повторных изменениях выполнялся <code>git pull</code> и повторное копирование в <code>~/www/hw4</code>.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="5.png" alt="Git pull на сервере">
+                    <p class="caption">Скриншот 5: Обновление на сервере</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ПОЯСНЕНИЯ ПО ЗАДАНИЮ ========== -->
+        <section class="task">
+            <h2>Что такое Cookies и чем задание №4 отличается от №3</h2>
+            <div class="description">
+                <h3>🍪 Cookies (куки)</h3>
+                <p><strong>Определение:</strong> Cookies — это небольшие фрагменты данных, которые сервер отправляет браузеру и которые сохраняются на стороне клиента. При каждом последующем запросе к этому серверу браузер автоматически отправляет соответствующие куки обратно.</p>
+                <p><strong>Преимущества использования в задании:</strong></p>
+                <ul>
+                    <li><strong>Сохранение состояния:</strong> позволяют «запоминать» пользователя между сеансами (например, предзаполнение формы ранее введёнными данными).</li>
+                    <li><strong>Передача ошибок валидации:</strong> при редиректе после POST можно сохранить информацию об ошибках и значениях полей в куках, а на GET-странице извлечь их и отобразить подсветку и сообщения.</li>
+                    <li><strong>Автоматическое удаление:</strong> установив короткое время жизни для кук с ошибками, они исчезают после отображения, не засоряя браузер.</li>
+                    <li><strong>Долговременное хранение:</strong> для успешно введённых данных можно установить куки на год, чтобы при следующем визите форма уже была заполнена.</li>
+                </ul>
+
+                <h3>🔍 Отличия от лабораторной работы №3</h3>
+                <table style="width:100%; border-collapse: collapse; margin-top:15px;">
+                    <tr style="background-color:#f0f0f0;">
+                        <th style="padding:8px; border:1px solid #ddd;">Аспект</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Задание №3</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Задание №4</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;"><strong>Валидация</strong></td>
+                        <td style="padding:8px; border:1px solid #ddd;">Выполнялась на сервере, но при ошибках форма просто перезагружалась с заполненными полями (через переменные PHP).</td>
+                        <td style="padding:8px; border:1px solid #ddd;">При ошибках происходит редирект на GET, а информация об ошибках и значениях передаётся через <strong>Cookies</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;"><strong>Подсветка ошибок</strong></td>
+                        <td style="padding:8px; border:1px solid #ddd;">Не требовалась, только общие сообщения.</td>
+                        <td style="padding:8px; border:1px solid #ddd;">Поля с ошибками подсвечиваются красным (класс <code>.error</code>), рядом выводятся конкретные сообщения.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;"><strong>Сохранение значений</strong></td>
+                        <td style="padding:8px; border:1px solid #ddd;">Только в БД, форма после успеха очищалась.</td>
+                        <td style="padding:8px; border:1px solid #ddd;">После успешной отправки значения сохраняются в Cookies на год, и при следующем заходе форма автоматически заполняется этими данными.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;"><strong>Обработка ошибок</strong></td>
+                        <td style="padding:8px; border:1px solid #ddd;">Ошибки хранились в массиве <code>$errors</code> и передавались непосредственно в форму.</td>
+                        <td style="padding:8px; border:1px solid #ddd;">Ошибки сохраняются в куки (<code>full_name_error</code> и т.д.), при GET-запросе они считываются и сразу удаляются.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;"><strong>Использование регулярных выражений</strong></td>
+                        <td style="padding:8px; border:1px solid #ddd;">Валидация проводилась, но не требовалось сообщать о допустимых символах.</td>
+                        <td style="padding:8px; border:1px solid #ddd;">В сообщениях об ошибках указывается, какие символы допустимы (например, для телефона).</td>
+                    </tr>
+                </table>
+                <p style="margin-top:15px;">Таким образом, задание №4 углубляет понимание работы с Cookies, учит правильно передавать состояние между запросами и улучшает пользовательский интерфейс за счёт подсветки ошибок и сохранения введённых данных.</p>
+            </div>
+        </section>
+
+
+
+
     </div>
 </body>
 </html>
