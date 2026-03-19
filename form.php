@@ -268,11 +268,7 @@ cp -r ~/web-hw4/* ~/www/hw4/</code></pre>
                         <td style="padding:8px; border:1px solid #ddd;">Ошибки хранились в массиве <code>$errors</code> и передавались непосредственно в форму.</td>
                         <td style="padding:8px; border:1px solid #ddd;">Ошибки сохраняются в куки (<code>full_name_error</code> и т.д.), при GET-запросе они считываются и сразу удаляются.</td>
                     </tr>
-                    <tr>
-                        <td style="padding:8px; border:1px solid #ddd;"><strong>Использование регулярных выражений</strong></td>
-                        <td style="padding:8px; border:1px solid #ddd;">Валидация проводилась, но не требовалось сообщать о допустимых символах.</td>
-                        <td style="padding:8px; border:1px solid #ddd;">В сообщениях об ошибках указывается, какие символы допустимы (например, для телефона).</td>
-                    </tr>
+                  
                 </table>
                 <p style="margin-top:15px;">Таким образом, задание №4 углубляет понимание работы с Cookies, учит правильно передавать состояние между запросами и улучшает пользовательский интерфейс за счёт подсветки ошибок и сохранения введённых данных.</p>
             </div>
