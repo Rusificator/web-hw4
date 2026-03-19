@@ -90,7 +90,7 @@
                 <select id="languages" name="languages[]" multiple size="6"
                     <?= !empty($errors['languages']) ? 'class="error"' : '' ?>>
                     <?php
-                    // Используем глобальную переменную $allowed_languages, определённую в index.php
+                    // Использую глобальную переменную $allowed_languages, определённую в index.php
                     $langs_from_db = $allowed_languages ?? [];
                     try {
                         if (function_exists('getDB')) {
@@ -143,11 +143,16 @@
             </div>
         </form>
 
-<!-- ========== ЭТАПЫ ВЫПОЛНЕНИЯ ЗАДАНИЯ ========== -->
+
         <section class="task">
+
+                <div class="description">
+                    <p> Для удобного просмотра всех сохранённых анкет создана отдельная страница: <a href="view.php" target="_blank">Просмотр сохранённых записей</a>.</p>
+                </div>
+
             <h2>Этапы выполнения задания №4</h2>
 
-            <!-- Скриншот 1: Подключение к серверу и создание каталога -->
+            
             <div class="subtask">
                 <h3>1. Подготовка рабочего каталога на сервере</h3>
                 <div class="description">
@@ -159,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Скриншот 2: Локальные файлы -->
+            
             <div class="subtask">
                 <h3>2. Подготовка локальных файлов</h3>
                 <div class="description">
@@ -171,7 +176,7 @@
                 </div>
             </div>
 
-            <!-- Скриншот 3: Инициализация Git и отправка на GitHub -->
+            
             <div class="subtask">
                 <h3>3. Инициализация Git и отправка на GitHub</h3>
                 <div class="command">
@@ -192,7 +197,7 @@ git push -u origin main</code></pre>
                 </div>
             </div>
 
-            <!-- Скриншот 4: Клонирование на сервер -->
+            
             <div class="subtask">
                 <h3>4. Клонирование репозитория на сервер</h3>
                 <div class="command">
@@ -209,7 +214,7 @@ cp -r ~/web-hw4/* ~/www/hw4/</code></pre>
                 </div>
             </div>
 
-            <!-- Скриншот 5: Обновление файлов на сервере -->
+            
             <div class="subtask">
                 <h3>5. Обновление файлов на сервере</h3>
                 <div class="command">
@@ -227,7 +232,7 @@ cp -r ~/web-hw4/* ~/www/hw4/</code></pre>
             </div>
         </section>
 
-        <!-- ========== ПОЯСНЕНИЯ ПО ЗАДАНИЮ ========== -->
+        
         <section class="task">
             <h2>Что такое Cookies и чем задание №4 отличается от №3</h2>
             <div class="description">

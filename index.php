@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $errors = [];
     $values = [];
 
-    // Проверяем наличие cookies с ошибками
+    // Проверяю наличие cookies с ошибками
     $fields = ['full_name', 'phone', 'email', 'birth_date', 'gender', 'biography', 'contract_accepted', 'languages'];
     foreach ($fields as $field) {
         $errors[$field] = !empty($_COOKIE[$field . '_error']);
     }
 
-    // Выводим сообщения об ошибках и удаляем куки
+    // Вывожу сообщения об ошибках и удаляем куки
     if ($errors['full_name']) {
         setcookie('full_name_error', '', 1);
         setcookie('full_name_value', '', 1);
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $messages[] = '<div class="error-message">Выберите хотя бы один язык программирования из списка.</div>';
     }
 
-    // Получаем ранее введённые значения из cookies (если есть)
+    // Получаю ранее введённые значения из cookies (если есть)
     foreach ($fields as $field) {
         $values[$field] = empty($_COOKIE[$field . '_value']) ? '' : $_COOKIE[$field . '_value'];
     }
@@ -122,7 +122,7 @@ else {
     $contract_accepted = isset($_POST['contract_accepted']) ? 1 : 0;
     $languages = $_POST['languages'] ?? [];
 
-    // ---- Валидация с регулярными выражениями ----
+    // Регулярные выражения
 
     // ФИО: только буквы и пробелы, длина ≤150
     if (empty($full_name)) {
