@@ -90,15 +90,19 @@
                 <select id="languages" name="languages[]" multiple size="6"
                     <?= !empty($errors['languages']) ? 'class="error"' : '' ?>>
                     <?php
-                    $langs_from_db = [];
+                    // Используем глобальную переменную $allowed_languages, определённую в index.php
+                    $langs_from_db = $allowed_languages ?? [];
                     try {
-                        $pdo = getDB();
-                        $stmt = $pdo->query("SELECT name FROM language ORDER BY name");
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            $langs_from_db[] = $row['name'];
+                        if (function_exists('getDB')) {
+                            $pdo = getDB();
+                            $stmt = $pdo->query("SELECT name FROM language ORDER BY name");
+                            $langs_from_db = [];
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $langs_from_db[] = $row['name'];
+                            }
                         }
                     } catch (Exception $e) {
-                        $langs_from_db = $allowed_languages;
+                        $langs_from_db = $allowed_languages ?? [];
                     }
                     foreach ($langs_from_db as $lang):
                         $selected = in_array($lang, $values['languages'] ?? []) ? 'selected' : '';
@@ -115,7 +119,7 @@
             <div class="form-group">
                 <label for="biography">Биография:</label>
                 <textarea id="biography" name="biography" rows="6"
-                    <?= !empty($errors['biography']) ? 'class="error"' ? '' ?>><?= htmlspecialchars($values['biography'] ?? '') ?></textarea>
+                    <?= !empty($errors['biography']) ? 'class="error"' : '' ?>><?= htmlspecialchars($values['biography'] ?? '') ?></textarea>
                 <?php if (!empty($errors['biography'])): ?>
                     <span class="field-error">Биография слишком длинная</span>
                 <?php endif; ?>

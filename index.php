@@ -1,7 +1,5 @@
 <?php
-/**
- * Задание 4: Форма с валидацией, Cookies и сохранением в БД
- */
+
 
 header('Content-Type: text/html; charset=UTF-8');
 
