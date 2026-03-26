@@ -28,6 +28,21 @@ try {
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
+         .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            background-color: #39e704;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .back-link a:hover {
+            background-color: #2ecc71;
+        }
     </style>
 </head>
 <body>
@@ -60,5 +75,8 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
+    <div class="back-link">
+            <a href="index.php">← Вернуться к форме</a>
+        </div>
 </body>
 </html>
