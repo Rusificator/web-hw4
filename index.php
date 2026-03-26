@@ -36,13 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $errors = [];
     $values = [];
 
-    // Проверяю наличие cookies с ошибками
     $fields = ['full_name', 'phone', 'email', 'birth_date', 'gender', 'biography', 'contract_accepted', 'languages'];
+
+    // Проверяем наличие cookies с ошибками
     foreach ($fields as $field) {
         $errors[$field] = !empty($_COOKIE[$field . '_error']);
     }
 
-    // Вывожу сообщения об ошибках и удаляем куки
+    // Выводим сообщения об ошибках и удаляем куки
     if ($errors['full_name']) {
         setcookie('full_name_error', '', 1);
         setcookie('full_name_value', '', 1);
@@ -84,17 +85,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $messages[] = '<div class="error-message">Выберите хотя бы один язык программирования из списка.</div>';
     }
 
-    // Получаю ранее введённые значения из cookies (если есть)
+    // Получаем ранее введённые значения из cookies
     foreach ($fields as $field) {
         $values[$field] = empty($_COOKIE[$field . '_value']) ? '' : $_COOKIE[$field . '_value'];
     }
-    // Для полей со множественным выбором (languages) нужно разобрать значение
+    // Для множественного выбора (languages) разбираем строку
     if (!empty($_COOKIE['languages_value'])) {
         $values['languages'] = explode(',', $_COOKIE['languages_value']);
     } else {
         $values['languages'] = [];
     }
-    // Для чекбокса contract_accepted
     $values['contract_accepted'] = !empty($_COOKIE['contract_accepted_value']) ? true : false;
 
     // Сообщение об успешном сохранении
@@ -103,7 +103,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $messages[] = '<div class="success-message">Данные успешно сохранены!</div>';
     }
 
-    // Подключаем файл с формой
+    // Получаем список языков из БД для отображения в форме
+    $pdo = getDB();
+    $languages_from_db = [];
+    $stmt = $pdo->query("SELECT name FROM language ORDER BY name");
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $languages_from_db[] = $row['name'];
+    }
+    if (empty($languages_from_db)) {
+        $languages_from_db = $allowed_languages;
+    }
+
+    // Подключаем шаблон формы
     include 'form.php';
     exit();
 }
@@ -122,9 +133,9 @@ else {
     $contract_accepted = isset($_POST['contract_accepted']) ? 1 : 0;
     $languages = $_POST['languages'] ?? [];
 
-    // Регулярные выражения
+    // --- Валидация ---
 
-    // ФИО: только буквы и пробелы, длина ≤150
+    // ФИО
     if (empty($full_name)) {
         setcookie('full_name_error', '1', time() + 24*3600);
         $errors = true;
@@ -137,7 +148,7 @@ else {
     }
     setcookie('full_name_value', $full_name, time() + 30*24*3600);
 
-    // Телефон: от 6 до 12 символов, допустимые: цифры, пробел, -, +, (, )
+    // Телефон
     if (empty($phone)) {
         setcookie('phone_error', '1', time() + 24*3600);
         $errors = true;
@@ -186,14 +197,14 @@ else {
     }
     setcookie('gender_value', $gender, time() + 30*24*3600);
 
-    // Биография (необязательное, но проверяем длину)
+    // Биография
     if (strlen($biography) > 10000) {
         setcookie('biography_error', '1', time() + 24*3600);
         $errors = true;
     }
     setcookie('biography_value', $biography, time() + 30*24*3600);
 
-    // Чекбокс согласия
+    // Чекбокс
     if (!$contract_accepted) {
         setcookie('contract_accepted_error', '1', time() + 24*3600);
         $errors = true;
@@ -213,10 +224,9 @@ else {
             }
         }
     }
-    // Сохраняем выбранные языки как строку через запятую
     setcookie('languages_value', implode(',', $languages), time() + 30*24*3600);
 
-    // Если есть ошибки, делаем редирект на GET
+    // Если есть ошибки, редирект на GET
     if ($errors) {
         header('Location: index.php');
         exit();
@@ -253,22 +263,22 @@ else {
 
         // Вставка в application_language
         $stmt = $pdo->prepare("INSERT INTO application_language (application_id, language_id) VALUES (?, ?)");
-        foreach ($languages as $lang) {
-            if (isset($lang_map[$lang])) {
-                $stmt->execute([$application_id, $lang_map[$lang]]);
+        foreach ($languages as $lang_name) {
+            if (isset($lang_map[$lang_name])) {
+                $stmt->execute([$application_id, $lang_map[$lang_name]]);
             }
         }
 
         $pdo->commit();
 
-        // Удаляем все куки ошибок (на всякий случай)
+        // Удаляем все куки ошибок
         $fields = ['full_name', 'phone', 'email', 'birth_date', 'gender', 'biography', 'contract_accepted', 'languages'];
         foreach ($fields as $field) {
             setcookie($field . '_error', '', 1);
         }
 
         // Устанавливаем куку об успешном сохранении
-        setcookie('save', '1', time() + 24*3600); // на день
+        setcookie('save', '1', time() + 24*3600);
 
         // Перенаправляем на GET
         header('Location: index.php');
@@ -276,7 +286,7 @@ else {
 
     } catch (Exception $e) {
         $pdo->rollBack();
-        // При ошибке БД покажем сообщение (можно через куки)
+        // При ошибке БД покажем сообщение через куки
         setcookie('db_error', '1', time() + 24*3600);
         header('Location: index.php');
         exit();
