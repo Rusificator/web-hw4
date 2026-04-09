@@ -2,26 +2,29 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: #e0e0e0;
+    background: #0b0e14;
     margin: 0;
     padding: 20px;
+    background-image: radial-gradient(circle at 10% 20%, rgba(30, 40, 60, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #fff;
+    background: #131722;
     padding: 30px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2a3344;
 }
 
 h1 {
-    color: #2c3e50;
-    border-bottom: 3px solid #39e704;
+    color: #f0b27a;
+    border-bottom: 2px solid #2a9d8f;
     padding-bottom: 10px;
     margin-top: 0;
+    letter-spacing: -0.5px;
 }
 
 /* Стили для формы */
@@ -33,7 +36,7 @@ h1 {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #555;
+    color: #c0cbd6;
 }
 
 .form-group input[type="text"],
@@ -44,10 +47,22 @@ h1 {
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #2a3344;
+    background-color: #1e2533;
+    border-radius: 8px;
     font-size: 16px;
+    color: #e0e0e0;
     box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #2a9d8f;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.3);
+    background-color: #252e40;
 }
 
 .form-group textarea {
@@ -58,30 +73,42 @@ h1 {
     display: inline-block;
     margin-right: 15px;
     font-weight: normal;
+    color: #c0cbd6;
 }
 
 .radio-group input {
     margin-right: 5px;
+    accent-color: #2a9d8f;
 }
 
 .checkbox label {
     display: inline-block;
     font-weight: normal;
+    color: #c0cbd6;
+}
+
+.checkbox input {
+    accent-color: #2a9d8f;
+    margin-right: 5px;
 }
 
 .form-group button {
-    background-color: #39e704;
+    background: #2a9d8f;
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    border: 1px solid #2ecc71;
+    transition: all 0.2s;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .form-group button:hover {
-    background-color: #2ecc71;
+    background: #238276;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.4);
 }
 
 /* Сообщения об ошибках */
@@ -90,7 +117,7 @@ h1 {
 }
 
 .error-message, .field-error {
-    color: #e74c3c;
+    color: #e67e22;
     font-size: 14px;
     margin-top: 5px;
 }
@@ -100,23 +127,26 @@ h1 {
 }
 
 .success-message {
-    background-color: #2ecc71;
+    background: #2a9d8f;
     color: white;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 500;
 }
 
 /* Поля с ошибками */
 input.error, select.error, textarea.error, .radio-group input.error {
-    border: 2px solid red !important;
+    border: 2px solid #e67e22 !important;
+    background-color: rgba(230, 126, 34, 0.1);
 }
 
 code {
-    background-color: #e7f3ff;
+    background-color: #1e2533;
     padding: 2px 5px;
-    border-radius: 3px;
+    border-radius: 4px;
     font-family: 'Courier New', monospace;
-    color: #c0392b;
+    color: #f0b27a;
 }
+

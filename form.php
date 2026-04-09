@@ -18,7 +18,7 @@
         }
         .nav-buttons a {
             display: inline-block;
-            background-color: #39e704;
+            background-color: #eb4200;
             color: white;
             text-decoration: none;
             padding: 10px 25px;
@@ -27,7 +27,7 @@
             transition: background-color 0.2s;
         }
         .nav-buttons a:hover {
-            background-color: #2ecc71;
+            background-color: #eb4200;
         }
     </style>
 </head>

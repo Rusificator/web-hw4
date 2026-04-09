@@ -33,7 +33,7 @@ try {
             margin-top: 20px;
         }
         .back-link a {
-            background-color: #39e704;
+            background-color: #eb4200;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -41,7 +41,7 @@ try {
             display: inline-block;
         }
         .back-link a:hover {
-            background-color: #2ecc71;
+            background-color: #eb4200;
         }
     </style>
 </head>
