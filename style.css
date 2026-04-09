@@ -1,4 +1,4 @@
-
+/* style.css – тёмно-угольная тема с бирюзово-золотыми акцентами */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -150,3 +150,27 @@ code {
     color: #f0b27a;
 }
 
+/* Навигационные кнопки (если есть) */
+.nav-buttons {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #2a3344;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.nav-buttons a {
+    background: #2a9d8f;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.nav-buttons a:hover {
+    background: #238276;
+    transform: translateY(-1px);
+}
