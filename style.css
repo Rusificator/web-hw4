@@ -1,31 +1,27 @@
-/* style.css – тёмно-синяя тема с неоново-розовыми акцентами */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #f0f0f0;
-    background: linear-gradient(135deg, #0a0f1e 0%, #0f172a 100%);
+    color: #333;
+    background-color: #070505;
     margin: 0;
     padding: 20px;
-    min-height: 100vh;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(20, 30, 55, 0.85);
-    backdrop-filter: blur(5px);
+    background-color: #fff;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 80, 120, 0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
 h1 {
-    color: #ff6b9d;
-    border-bottom: 3px solid #ff6b9d;
+    color: #2c3e50;
+    border-bottom: 3px solid #39e704;
     padding-bottom: 10px;
     margin-top: 0;
-    text-shadow: 0 0 5px rgba(255, 107, 157, 0.5);
 }
 
 /* Стили для формы */
@@ -37,7 +33,7 @@ h1 {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #ffb3c6;
+    color: #555;
 }
 
 .form-group input[type="text"],
@@ -48,22 +44,10 @@ h1 {
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #2a3a5a;
-    background-color: #1e2a3e;
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 16px;
-    color: #f0f0f0;
     box-sizing: border-box;
-    transition: all 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: #ff6b9d;
-    outline: none;
-    box-shadow: 0 0 8px rgba(255, 107, 157, 0.5);
-    background-color: #25344a;
 }
 
 .form-group textarea {
@@ -74,42 +58,30 @@ h1 {
     display: inline-block;
     margin-right: 15px;
     font-weight: normal;
-    color: #ffb3c6;
 }
 
 .radio-group input {
     margin-right: 5px;
-    accent-color: #ff6b9d;
 }
 
 .checkbox label {
     display: inline-block;
     font-weight: normal;
-    color: #ffb3c6;
-}
-
-.checkbox input {
-    accent-color: #ff6b9d;
-    margin-right: 5px;
 }
 
 .form-group button {
-    background: linear-gradient(95deg, #ff6b9d, #ff3b6f);
+    background-color: #eb4200;
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 30px;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+    border: 1px solid #2ecc71;
 }
 
 .form-group button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.5);
-    background: linear-gradient(95deg, #ff7fa8, #ff4b7a);
+    background-color: #2ecc71;
 }
 
 /* Сообщения об ошибках */
@@ -118,7 +90,7 @@ h1 {
 }
 
 .error-message, .field-error {
-    color: #ffaa88;
+    color: #e74c3c;
     font-size: 14px;
     margin-top: 5px;
 }
@@ -128,50 +100,23 @@ h1 {
 }
 
 .success-message {
-    background: linear-gradient(95deg, #2ecc71, #27ae60);
+    background-color: #2ecc71;
     color: white;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 4px;
     margin-bottom: 20px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
 }
 
 /* Поля с ошибками */
 input.error, select.error, textarea.error, .radio-group input.error {
-    border: 2px solid #ff6b6b !important;
-    background-color: rgba(255, 107, 107, 0.1);
+    border: 2px solid red !important;
 }
 
 code {
-    background-color: #1e2a3e;
+    background-color: #e7f3ff;
     padding: 2px 5px;
-    border-radius: 6px;
+    border-radius: 3px;
     font-family: 'Courier New', monospace;
-    color: #ff6b9d;
-}
-
-/* Дополнительно для навигационных кнопок (если есть) */
-.nav-buttons {
-    margin-top: 30px;
-    text-align: center;
-    border-top: 1px solid #2a3a5a;
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.nav-buttons a {
-    background: linear-gradient(95deg, #ff6b9d, #ff3b6f);
-    color: white;
-    text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: all 0.2s;
-}
-.nav-buttons a:hover {
-    background: #ff4b7a;
-    transform: translateY(-2px);
+    color: #c0392b;
 }
