@@ -1,30 +1,31 @@
-/* style.css – тёмно-угольная тема с бирюзово-золотыми акцентами */
+/* style.css – тёмно-синяя тема с неоново-розовыми акцентами */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #e0e0e0;
-    background: #0b0e14;
+    color: #f0f0f0;
+    background: linear-gradient(135deg, #0a0f1e 0%, #0f172a 100%);
     margin: 0;
     padding: 20px;
-    background-image: radial-gradient(circle at 10% 20%, rgba(30, 40, 60, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
+    min-height: 100vh;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: #131722;
+    background: rgba(20, 30, 55, 0.85);
+    backdrop-filter: blur(5px);
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border: 1px solid #2a3344;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 80, 120, 0.3);
 }
 
 h1 {
-    color: #f0b27a;
-    border-bottom: 2px solid #2a9d8f;
+    color: #ff6b9d;
+    border-bottom: 3px solid #ff6b9d;
     padding-bottom: 10px;
     margin-top: 0;
-    letter-spacing: -0.5px;
+    text-shadow: 0 0 5px rgba(255, 107, 157, 0.5);
 }
 
 /* Стили для формы */
@@ -36,7 +37,7 @@ h1 {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #c0cbd6;
+    color: #ffb3c6;
 }
 
 .form-group input[type="text"],
@@ -47,11 +48,11 @@ h1 {
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #2a3344;
-    background-color: #1e2533;
-    border-radius: 8px;
+    border: 1px solid #2a3a5a;
+    background-color: #1e2a3e;
+    border-radius: 10px;
     font-size: 16px;
-    color: #e0e0e0;
+    color: #f0f0f0;
     box-sizing: border-box;
     transition: all 0.2s;
 }
@@ -59,10 +60,10 @@ h1 {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    border-color: #2a9d8f;
+    border-color: #ff6b9d;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.3);
-    background-color: #252e40;
+    box-shadow: 0 0 8px rgba(255, 107, 157, 0.5);
+    background-color: #25344a;
 }
 
 .form-group textarea {
@@ -73,42 +74,42 @@ h1 {
     display: inline-block;
     margin-right: 15px;
     font-weight: normal;
-    color: #c0cbd6;
+    color: #ffb3c6;
 }
 
 .radio-group input {
     margin-right: 5px;
-    accent-color: #2a9d8f;
+    accent-color: #ff6b9d;
 }
 
 .checkbox label {
     display: inline-block;
     font-weight: normal;
-    color: #c0cbd6;
+    color: #ffb3c6;
 }
 
 .checkbox input {
-    accent-color: #2a9d8f;
+    accent-color: #ff6b9d;
     margin-right: 5px;
 }
 
 .form-group button {
-    background: #2a9d8f;
+    background: linear-gradient(95deg, #ff6b9d, #ff3b6f);
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 6px;
+    border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
 }
 
 .form-group button:hover {
-    background: #238276;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.5);
+    background: linear-gradient(95deg, #ff7fa8, #ff4b7a);
 }
 
 /* Сообщения об ошибках */
@@ -117,7 +118,7 @@ h1 {
 }
 
 .error-message, .field-error {
-    color: #e67e22;
+    color: #ffaa88;
     font-size: 14px;
     margin-top: 5px;
 }
@@ -127,34 +128,34 @@ h1 {
 }
 
 .success-message {
-    background: #2a9d8f;
+    background: linear-gradient(95deg, #2ecc71, #27ae60);
     color: white;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 20px;
     text-align: center;
-    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
 }
 
 /* Поля с ошибками */
 input.error, select.error, textarea.error, .radio-group input.error {
-    border: 2px solid #e67e22 !important;
-    background-color: rgba(230, 126, 34, 0.1);
+    border: 2px solid #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.1);
 }
 
 code {
-    background-color: #1e2533;
+    background-color: #1e2a3e;
     padding: 2px 5px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-family: 'Courier New', monospace;
-    color: #f0b27a;
+    color: #ff6b9d;
 }
 
-/* Навигационные кнопки (если есть) */
+/* Дополнительно для навигационных кнопок (если есть) */
 .nav-buttons {
     margin-top: 30px;
     text-align: center;
-    border-top: 1px solid #2a3344;
+    border-top: 1px solid #2a3a5a;
     padding-top: 20px;
     display: flex;
     justify-content: center;
@@ -162,15 +163,15 @@ code {
     flex-wrap: wrap;
 }
 .nav-buttons a {
-    background: #2a9d8f;
+    background: linear-gradient(95deg, #ff6b9d, #ff3b6f);
     color: white;
     text-decoration: none;
     padding: 8px 20px;
-    border-radius: 6px;
-    font-weight: 500;
+    border-radius: 30px;
+    font-weight: bold;
     transition: all 0.2s;
 }
 .nav-buttons a:hover {
-    background: #238276;
-    transform: translateY(-1px);
+    background: #ff4b7a;
+    transform: translateY(-2px);
 }
