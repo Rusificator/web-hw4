@@ -46,42 +46,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Выводим сообщения об ошибках и удаляем куки
     if ($errors['full_name']) {
         setcookie('full_name_error', '', 1);
-        setcookie('full_name_value', '', 1);
+        
         $messages[] = '<div class="error-message">ФИО должно содержать только буквы и пробелы (макс. 150 символов).</div>';
     }
     if ($errors['phone']) {
-       
-       
+        setcookie('phone_error', '', 1)
         $messages[] = '<div class="error-message">Телефон должен содержать от 6 до 12 цифр, допускаются символы +, -, (, ), пробел.</div>';
     }
     if ($errors['email']) {
         setcookie('email_error', '', 1);
-        setcookie('email_value', '', 1);
+        
         $messages[] = '<div class="error-message">Введите корректный email.</div>';
     }
     if ($errors['birth_date']) {
         setcookie('birth_date_error', '', 1);
-        setcookie('birth_date_value', '', 1);
+      
         $messages[] = '<div class="error-message">Дата рождения должна быть в формате ГГГГ-ММ-ДД и не позже сегодняшнего дня.</div>';
     }
     if ($errors['gender']) {
         setcookie('gender_error', '', 1);
-        setcookie('gender_value', '', 1);
+      
         $messages[] = '<div class="error-message">Выберите пол.</div>';
     }
     if ($errors['biography']) {
         setcookie('biography_error', '', 1);
-        setcookie('biography_value', '', 1);
+       
         $messages[] = '<div class="error-message">Биография не должна превышать 10000 символов.</div>';
     }
     if ($errors['contract_accepted']) {
         setcookie('contract_accepted_error', '', 1);
-        setcookie('contract_accepted_value', '', 1);
+       
         $messages[] = '<div class="error-message">Необходимо подтвердить согласие.</div>';
     }
     if ($errors['languages']) {
         setcookie('languages_error', '', 1);
-        setcookie('languages_value', '', 1);
+        
         $messages[] = '<div class="error-message">Выберите хотя бы один язык программирования из списка.</div>';
     }
 
