@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     if ($errors['phone']) {
         setcookie('phone_error', '', 1);
-        setcookie('phone_value', '', 1);
+       
         $messages[] = '<div class="error-message">Телефон должен содержать от 6 до 12 цифр, допускаются символы +, -, (, ), пробел.</div>';
     }
     if ($errors['email']) {
