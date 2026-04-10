@@ -271,11 +271,7 @@ else {
 
         $pdo->commit();
 
-        // Удаляем все куки ошибок
-        $fields = ['full_name', 'phone', 'email', 'birth_date', 'gender', 'biography', 'contract_accepted', 'languages'];
-        foreach ($fields as $field) {
-            setcookie($field . '_error', '', 1);
-        }
+        
 
         // Устанавливаем куку об успешном сохранении
         setcookie('save', '1', time() + 24*3600);
