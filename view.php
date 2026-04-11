@@ -28,22 +28,8 @@ try {
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
-         .back-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .back-link a {
-            background-color: #eb4200;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .back-link a:hover {
-            background-color: #eb4200;
-        }
-    </style>
+        </style>
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Сохранённые анкеты</h1>
