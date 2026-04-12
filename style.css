@@ -1,68 +1,41 @@
-/* style.css – для лабораторной работы №5 (тёмная сталь + медь) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #121212;
-    background-image: radial-gradient(circle at 15% 30%, #1e272e 0%, #0a0c10 100%);
-    color: #d4d4d4;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: #333;
+    background-color: #070505;
+    margin: 0;
     padding: 20px;
-    min-height: 100vh;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    background: #1e1e1e;
-    border-radius: 20px;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    border: 1px solid #2c2c2c;
-}
-
-/* Шапка (если есть) */
-.header {
-    background: #252525;
-    padding: 25px 30px;
-    border-bottom: 1px solid #3a3a3a;
-}
-.header h1 {
-    color: #d99e4c;
-    font-size: 2rem;
-    margin-bottom: 5px;
-    letter-spacing: -0.5px;
-}
-.header p {
-    color: #a0a0a0;
-}
-
-h1:not(.header h1) {
-    color: #d99e4c;
-    border-bottom: 2px solid #b87333;
-    padding-bottom: 12px;
-    margin: 0 30px 20px 30px;
-    font-size: 1.8rem;
-}
-
-/* Форма */
-.form-container, .container > form {
+    background-color: #fff;
     padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
-.form-group {
-    margin-bottom: 22px;
+h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #eb4200;
+    padding-bottom: 10px;
+    margin-top: 0;
 }
+
+/* Стили для формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-weight: 600;
-    color: #b8b8b8;
+    color: #555;
 }
+
 .form-group input[type="text"],
 .form-group input[type="tel"],
 .form-group input[type="email"],
@@ -70,204 +43,80 @@ h1:not(.header h1) {
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 12px 15px;
-    background: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 12px;
-    font-size: 1rem;
-    color: #eee;
-    transition: all 0.2s;
-}
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: #b87333;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(184, 115, 51, 0.3);
-    background: #2f2f2f;
-}
-.radio-group {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-.radio-group label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: normal;
-    cursor: pointer;
-}
-.radio-group input {
-    accent-color: #b87333;
-    width: 16px;
-    height: 16px;
-}
-.checkbox label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-.checkbox input {
-    accent-color: #b87333;
-    width: 18px;
-    height: 18px;
-}
-button, input[type="submit"] {
-    background: #b87333;
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.2s;
-    width: 100%;
-    margin-top: 10px;
-}
-button:hover, input[type="submit"]:hover {
-    background: #9e5e28;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-/* Сообщения */
-.success, .success-message {
-    background: #2c5f2d;
-    color: #e6f7e6;
-    padding: 14px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    text-align: center;
-    border-left: 4px solid #97bc62;
+.form-group textarea {
+    resize: vertical;
 }
-.errors, .error-message, .field-error {
-    color: #e6a177;
-    font-size: 0.85rem;
-    margin-top: 5px;
+
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
 }
-.errors {
-    background: #2a1f1a;
-    padding: 15px;
-    border-radius: 12px;
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+.checkbox label {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.form-group button {
+    background-color: #eb4200;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #2ecc71;
+}
+
+.form-group button:hover {
+    background-color: #2ecc71;
+}
+
+/* Сообщения об ошибках */
+.messages {
     margin-bottom: 20px;
 }
-.errors ul {
-    margin-left: 20px;
+
+.error-message, .field-error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
 }
+
 .field-error {
     display: block;
 }
-input.error, select.error, textarea.error, .radio-group input.error {
-    border: 2px solid #e67e22 !important;
-    background: #2c241f;
-}
 
-/* Таблица для view.php */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #1e1e1e;
-}
-th, td {
-    border: 1px solid #3a3a3a;
-    padding: 12px;
-    text-align: left;
-    vertical-align: top;
-}
-th {
-    background: #2c2c2c;
-    color: #d99e4c;
-}
-tr:hover td {
-    background: #262626;
-}
-
-/* Навигационные кнопки */
-.nav-buttons, .back-link {
-    margin: 30px 0 20px;
-    text-align: center;
-    border-top: 1px solid #2c2c2c;
-    padding-top: 25px;
-}
-.nav-buttons a, .back-link a {
-    background: #2c2c2c;
-    color: #d99e4c;
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 30px;
-    font-weight: 500;
-    margin: 0 10px;
-    transition: 0.2s;
-    display: inline-block;
-    border: 1px solid #444;
-}
-.nav-buttons a:hover, .back-link a:hover {
-    background: #b87333;
+.success-message {
+    background-color: #2ecc71;
     color: white;
-    border-color: #b87333;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Ссылки внутри текста */
-a {
-    color: #d99e4c;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+/* Поля с ошибками */
+input.error, select.error, textarea.error, .radio-group input.error {
+    border: 2px solid red !important;
 }
 
-/* Дополнительные элементы (код, подписи) */
 code {
-    background: #2a2a2a;
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-family: monospace;
-    color: #e6a177;
-}
-.screenshot {
-    text-align: center;
-    margin: 15px 0;
-}
-.screenshot img {
-    max-width: 100%;
-    border-radius: 12px;
-    border: 1px solid #444;
-}
-.caption {
-    font-style: italic;
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-top: 6px;
-}
-
-
-
-/* Кнопки навигации и возврата */
-.nav-buttons, .back-link {
-    margin: 30px 0 20px;
-    text-align: center;
-    border-top: 1px solid #2c2c2c;
-    padding-top: 25px;
-}
-.nav-buttons a, .back-link a {
-    display: inline-block;
-    background: #b87333;        /* медный фон, как у кнопки Submit */
-    color: white;               /* белый текст */
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 30px;        /* скругление как у кнопки */
-    font-weight: 600;
-    margin: 0 10px;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-}
-.nav-buttons a:hover, .back-link a:hover {
-    background: #9e5e28;        /* более тёмный оттенок при наведении */
-    transform: translateY(-1px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    background-color: #e7f3ff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #c0392b;
 }
